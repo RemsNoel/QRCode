@@ -2,28 +2,29 @@ import React from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native'
 
 class QRCodeItem extends React.Component {
-    render() {
-      return (
-        <View style={styles.main_container}>
+  render() {
+    const qrcode = this.props.qrcode
+    return (
+      <View style={styles.main_container}>
         <Image
           style={styles.image}
           source={{uri: "image"}}
         />
         <View style={styles.content_container}>
           <View style={styles.header_container}>
-            <Text style={styles.title_text}>Nom du coupon</Text>
+            <Text style={styles.title_text}>{qrcode.title}</Text>
+            <Text style={styles.vote_text}>{qrcode.vote_average}</Text>
           </View>
           <View style={styles.description_container}>
-            <Text style={styles.description_text} numberOfLines={6}>Description</Text>
-            {/* La propriété numberOfLines permet de couper un texte si celui-ci est trop long, il suffit de définir un nombre maximum de ligne */}
+            <Text style={styles.description_text} numberOfLines={6}>{qrcode.overview}</Text>
           </View>
           <View style={styles.date_container}>
-            <Text style={styles.date_text}>Expire le 00/00/0000</Text>
+            <Text style={styles.date_text}>Expire le {qrcode.release_date}</Text>
           </View>
         </View>
       </View>
-      )
-    }
+    )
+  }
 }
 
 const styles = StyleSheet.create({
