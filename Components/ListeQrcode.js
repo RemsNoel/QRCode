@@ -22,7 +22,8 @@ class ListeQrcode extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
       flex: 1,
-      marginTop: 20
+      marginTop: 20,
+      width:'100%'
     }
   })
 
